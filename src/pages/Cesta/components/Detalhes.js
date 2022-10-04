@@ -1,22 +1,28 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import Botao from '../../../components/Botao';
 
 import Texto from '../../../components/Texto';
-import logo from '../../../../assets/logo.png';
 
-export default function Detalhes() {
+export default function Detalhes({
+  nome,
+  nomeFazenda,
+  logoFazenda,
+  descricao,
+  preco,
+  botao,
+}) {
   return (
     <>
-      <Texto style={styles.nome}>Cesta de Verduras</Texto>
+      <Texto style={styles.nome}>{nome}</Texto>
       <View style={styles.fazenda}>
-        <Image source={logo} style={styles.imagemFazenda} />
-        <Texto style={styles.nomeFazenda}>Jenny Jack Farms</Texto>
+        <Image source={logoFazenda} style={styles.imagemFazenda} />
+        <Texto style={styles.nomeFazenda}>{nomeFazenda}</Texto>
       </View>
-      <Texto style={styles.descricao}>
-        Uma cesta com produtos selecionados cuidadosamente da fazendo direto
-        para a sua cozinha
-      </Texto>
-      <Texto style={styles.preco}>R$ 40,00</Texto>
+      <Texto style={styles.descricao}>{descricao}</Texto>
+      <Texto style={styles.preco}>{preco}</Texto>
+
+      <Botao texto={botao} style={styles.botao} onPress={() => {}}/>
     </>
   );
 }
@@ -52,5 +58,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     lineHeight: 42,
     marginTop: 8,
-  },
+  },botao:{
+    marginTop: 16,
+  }
 });
